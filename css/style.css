@@ -16,6 +16,7 @@ body {
 :root {
     --color-primary: #000;
     --color-white: #fff;
+    --color-accent: #0467F1;
     --color-footer-bg: #B7B7A4;
     --color-grey: #808080;
     --ff: "Montserrat", Sans-Serif;
@@ -166,29 +167,61 @@ p {
     background-color: var(--color-primary);
 }
 /* ----pricing section---- */
-.plan-card {
-    border: 4px solid var(--color-primary);
-    border-radius: 24px;
+.plan-card .plan-info {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 450px;
+    z-index: 0;
+    border: 2px solid var(--color-primary);
+    line-height: 40px;
+    border-radius: 48px;
 }
-.plan-info {
-    padding: 40px 0;
+.plan-card .sub-text {
+ font-size: 1.4rem;
+ font-weight: 500;
+ line-height: 1.4;
+ color: var(--color-accent);
+ padding-top: 32px;
 }
-.plan-card span{
-    font-weight: 300;    
-}
-.plan-card ul{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.plan-card li{
-    font-size: 1.1rem;
-    line-height: 1.8;
+.plan-card .price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 4px 0 24px;
 }
 .plan-card .main-btn {
     background-color: #0467F1;
     color: white;
     border: #0467F1;
+    line-height: 20px;
+    
 }
+.plan-info::before{
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 50% 50% 0 0;
+    z-index: -1;
+    transition: all .6s;
+}
+.plan-info li {
+    transition: all .4s ease;
+}
+.plan-info:hover::before {
+    top:0;
+    border-radius: 0;
+}
+.plan-info:hover li {
+    color: var(--color-white);
+}
+
 /* ---contact form--- */
 .form-area {
     background-color: var(--color-primary);
